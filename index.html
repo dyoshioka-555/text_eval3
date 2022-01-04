@@ -3,6 +3,7 @@
 <html>
 
 <head>
+  <link rel="stylesheet" type="text/css" href="tabel.css">
   <meta charset="UTF-8">
   <title>Text style transfer Evaluation Test</title>
 </head>
@@ -71,7 +72,7 @@
     <p id="page"></p>
     <p id="direction"></p>
     <p>
-    <table border="1">
+    <table class="a" border="1">
       <tr>
         <th>元テキスト</th>
         <td id="ori_text"></td>
@@ -84,15 +85,25 @@
     </table>
     </p>
     <p>
-    <table border="1">
+    <table class="b" border="1">
+
       <tr>
-        <th>↓</th>
+        <th rowspan="2">↓</th>
+        <th>完全に×</th>
+        <th>どちらかと言えば×</th>
+        <th>どちらかと言えば〇</th>
+        <th>完全に〇</th>
+        <th rowspan="2">↑</th>
+      </tr>
+
+      <tr>
         <th>1</th>
         <th>2</th>
         <th>3</th>
         <th>4</th>
-        <th>↑</th>
       </tr>
+
+
       <tr>
         <td>スタイル変換されていない</td>
         <td><label><input type="radio" name="eval1" onclick="evaluation(1)"></label></td>
@@ -103,15 +114,24 @@
       </tr>
     </table>
 
-    <table>
+    <p></p>
+
+    <table class="c" border="1">
       <tr>
-        <th>↓</th>
+        <th rowspan="2">↓</th>
+        <th>完全に×</th>
+        <th>どちらかと言えば×</th>
+        <th>妥協できる</th>
+        <th>どちらかと言えば〇</th>
+        <th>完全に〇</th>
+        <th rowspan="2">↑</th>
+      </tr>
+      <tr>
         <th>1</th>
         <th>2</th>
         <th>3</th>
         <th>4</th>
         <th>5</th>
-        <th>↑</th>
       </tr>
 
       <tr>

@@ -1,8 +1,8 @@
 import os
 import random
 
-root = "../texts/"
-METHOD = ["origin", "cvae", "cvae_bow"]
+root = "texts/"
+METHOD = ["origin", "cvae_attn", "cvae_bow"]
 N_SET = 4
 random.seed(1)
 
@@ -26,11 +26,18 @@ rand_num0.sort()
 rand_num1 = random.sample(range(len(text_lists["origin"][1])), 100)
 rand_num1.sort()
 
+print(rand_num0)
+
+print(rand_num1)
+
 for method in METHOD:
+    print(method)
+    print(len(text_lists[method][0]))
+    print(len(text_lists[method][1]))
     text0 = [text_lists[method][0][i] for i in rand_num0]
     text1 = [text_lists[method][1][i] for i in rand_num1]
     text_lists[method] = {0: text0, 1: text1}
-    print(text_lists[method][0])
+    
 
 for n_set in range(N_SET):
     file_paths = []

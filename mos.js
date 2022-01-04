@@ -43,7 +43,7 @@ function start_experiment() {
 
   // read filepath
   var origin_list = text_dir + "set" + set_num + "/origin.list";
-  var method1_list = text_dir + "set" + set_num + "/cvae.list";
+  var method1_list = text_dir + "set" + set_num + "/cvae_attn.list";
   var method2_list = text_dir + "set" + set_num + "/cvae_bow.list";
   //var method3_list = text_dir + "set" + set_num + "/cvae2.list";
   //var method4_list = text_dir + "set" + set_num + "/cvae_bow2.list";
@@ -88,10 +88,10 @@ function makeTextList() {
   var m2_texts = [];
   for (i = 0; i < origin.length; i++) {
     if (i < 25) {
-      m1_texts.push({ "id": i, "direction": 0, "method": "cvae", "ori_text": origin[i], "tra_text": method1[i] });
+      m1_texts.push({ "id": i, "direction": 0, "method": "cvae+attn", "ori_text": origin[i], "tra_text": method1[i] });
       m2_texts.push({ "id": i, "direction": 0, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method2[i] });
     } else {
-      m1_texts.push({ "id": i, "direction": 1, "method": "cvae", "ori_text": origin[i], "tra_text": method1[i] });
+      m1_texts.push({ "id": i, "direction": 1, "method": "cvae+attn", "ori_text": origin[i], "tra_text": method1[i] });
       m2_texts.push({ "id": i, "direction": 1, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method2[i] });
     }
   }
