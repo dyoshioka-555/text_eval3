@@ -107,9 +107,9 @@ function makeTextList() {
 function SetText() {
   document.getElementById("page").textContent = "" + (n + 1) + "/" + scores1.length;
   if (text_list[n]["direction"] == 0) {
-    document.getElementById("direction").textContent = "\nフィラー・言い淀み: なし→あり";
+    document.getElementById("direction").textContent = "\n標準語 → 関西弁";
   } else {
-    document.getElementById("direction").textContent = "\nフィラー・言い淀み: あり→なし";
+    document.getElementById("direction").textContent = "\n関西弁 → 標準語";
   }
 
   document.getElementById("ori_text").innerHTML = text_list[n]["ori_text"];
