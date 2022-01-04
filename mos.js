@@ -128,7 +128,7 @@ function init() {
 function evalCheck1() {
   const c = scores1[n];
   if ((c <= 0) || (c > eval1.length)) {
-    for (var i = 0; i < eval3.length; i++) {
+    for (var i = 0; i < eval1.length; i++) {
       eval1[i].checked = false;
     }
   }
@@ -166,10 +166,12 @@ function setButton() {
     document.getElementById("prev").disabled = false;
     document.getElementById("next2").disabled = true;
     document.getElementById("finish").disabled = true;
-    for (var i = 0; i < eval3.length; i++) {
+    for (var i = 0; i < eval1.length; i++) {
       if (eval1[i].checked) {
         finish_flag += 1;
       }
+    }
+    for (var i = 0; i < eval2.length; i++) {
       if (eval2[i].checked) {
         finish_flag += 1;
       }
@@ -191,11 +193,13 @@ function setButton() {
     }
     document.getElementById("next2").disabled = true;
     document.getElementById("finish").disabled = true;
-    for (var i = 0; i < eval3.length; i++) {
+    for (var i = 0; i < eval1.length; i++) {
       console.log(next_flag);
       if (eval1[i].checked) {
         next_flag += 1;
       }
+    }
+    for (var i = 0; i < eval2.length; i++) {
       if (eval2[i].checked) {
         next_flag += 1;
       }
@@ -213,24 +217,28 @@ function setButton() {
 }
 
 function evaluation(k) {
-  for (var i = 0; i < eval2.length; i++) {
-    switch (k) {
-      case 1:
+  switch (k) {
+    case 1:
+      for (var i = 0; i < eval1.length; i++) {
         if (eval1[i].checked) {
           scores1[n] = i + 1;
         }
-        break;
-      case 2:
+      }
+      break;
+    case 2:
+      for (var i = 0; i < eval2.length; i++) {
         if (eval2[i].checked) {
           scores2[n] = i + 1;
         }
-        break;
-      case 3:
+      }
+      break;
+    case 3:
+      for (var i = 0; i < eval3.length; i++) {
         if (eval3[i].checked) {
           scores3[n] = i + 1;
         }
-        break;
-    }
+      }
+      break;
   }
   setButton();
 }
