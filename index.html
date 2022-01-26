@@ -29,7 +29,14 @@
 
     <h2>実験手順</h2>
     <ol>
-      <li>名前を入力し、1から5までのセット番号を選んで下さい。</li>
+      <li>名前を入力し、関西弁がどれくらい分かるか、以下の4段階で一番近いものを選んでください。</li>
+      <ul>
+        1. 関西弁にほとんど触れたことが無いレベル<br>
+        2. メディア上での知識などで少し分かるレベル<br>
+        3. 関西圏での生活経験や，親族に関西弁ネイティブがいるなどの理由である程度分かるレベル<br>
+        4. 関西圏出身のネイティブ、もしくは関西圏での長い生活経験でネイティブと同等のレベル<br>
+      </ul>
+      <li>1から5までのセット番号を選んで下さい。</li>
       <li>"Start Experiment"を押して下さい。</li>
       <li>元テキストと生成テキストを読み、相応しいと思った評価を選択して下さい。<br>
         本評価実験では、生成されたテキストについて、<br>
@@ -47,6 +54,7 @@
 
     <h2>評価例</h2>
     以下に各スタイルのテキストの例とその評価例を示します。
+
 
 
     <h2>注意</h2>
@@ -68,9 +76,14 @@
     <p> Your name: <br>
       <input type="text" id="name" value="">
     </p>
-    <p> Your birthplace: <br>
-      <input type="text" id="birthplace" value="">
-    </p>
+
+    <p> Native Level: <br>
+      <label><input type="radio" name="native" id="native" value="1">1. 殆ど分からない</label><br>
+      <label><input type="radio" name="native" id="native" value="2">2. 一般的な知識として分かる</label><br>
+      <label><input type="radio" name="native" id="native" value="3">3. ある程度詳しく分かる</label><br>
+      <label><input type="radio" name="native" id="native" value="4">4. 関西弁ネイティブ</label><br>
+
+
     <p> Setlist number: <br>
       <label><input type="radio" name="set" id="number" value="1">1</label><br>
       <label><input type="radio" name="set" id="number" value="2">2</label><br>

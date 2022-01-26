@@ -24,9 +24,17 @@ function start_experiment() {
     alert("Please enter your name.");
     return false;
   }
-  var birthplace = document.getElementById("birthplace").value.replace(" ", "_");
-  if (name == "") {
-    alert("Please enter your birthplace.");
+
+  // get native level
+  var native_num = "0"
+  var native = document.getElementsByName("native");
+  for (var i = 0; i < native.length; i++) {
+    if (native[i].checked) {
+      native_num = native[i].value;
+    }
+  }
+  if (native_num == "0") {
+    alert("Please press the native level button.");
     return false;
   }
 
@@ -50,14 +58,14 @@ function start_experiment() {
   var origin_list = text_dir + "set" + set_num + "/origin.list";
   var method1_list = text_dir + "set" + set_num + "/cvae_attn.list";
   var method2_list = text_dir + "set" + set_num + "/cvae_bow.list";
-  //var method3_list = text_dir + "set" + set_num + "/cvae2.list";
+  var method3_list = text_dir + "set" + set_num + "/cvae.list";
   //var method4_list = text_dir + "set" + set_num + "/cvae_bow2.list";
   origin = loadText(origin_list);
   method1 = loadText(method1_list);
   method2 = loadText(method2_list);
-  //method3 = loadText(method3_list);
+  method3 = loadText(method3_list);
   //method4 = loadText(method4_list);
-  outfile = name + "_set" + set_num + ".csv";
+  outfile = name + "_nl" + native_num + "_set" + set_num + ".csv";
   text_list = makeTextList();
   console.log(text_list);
   scores1 = (new Array(text_list.length)).fill(0);
