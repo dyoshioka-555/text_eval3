@@ -8,6 +8,11 @@
   <title>Text style transfer Evaluation Test</title>
 </head>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Text style transfer Evaluation Test</title>
+</head>
+
 <body>
 
   <!-- 注意書きなど -->
@@ -16,20 +21,19 @@
     <h1>Text style transfer Evaluation Test</h1>
 
     実験に協力して頂き、ありがとうございます。<br>
-    本実験ではスタイル変換した日本語テキストについて、3項目を1～5点で評価して頂きます。<br>
+    本実験ではスタイル変換した日本語テキストについて、3項目を4点もしくは5点満点で評価して頂きます。<br>
     元テキストとモデルから生成された変換テキストの両方を読み、以下の評価を行ってください。<br>
-    今回取り扱うスタイルは<b>「フィラー・言い淀みの有無」</b>です。<br>
-    ここでの「フィラー・言い淀み」とは、発話の内容とは直接関係のない「あのー」や「えーと」のような間投詞や、<br>
-    発話の繰り返し、言い直しやつっかえなどを指します。<br>
-    実験の手順を説明します。
+    今回取り扱うスタイルは<b>「標準語・関西弁」</b>です。<br>
+
+    実験の手順を説明します。よく読んでからお進みください。
 
     <h2>実験手順</h2>
     <ol>
-      <li>名前を入力し、1から4までのセット番号を選んで下さい。</li>
+      <li>名前を入力し、1から5までのセット番号を選んで下さい。</li>
       <li>"Start Experiment"を押して下さい。</li>
       <li>元テキストと生成テキストを読み、相応しいと思った評価を選択して下さい。<br>
         本評価実験では、生成されたテキストについて、<br>
-        <b>「スタイル変換度合い」</b>フィラー・言い淀みの有無が変換されているか<br>
+        <b>「スタイル変換度合い」</b>標準語・関西弁が変換されているか<br>
         <b>「コンテンツ保存性」</b>：元テキストの内容が保存されているか<br>
         <b>「自然性」</b>：日本語として自然か否か<br>
         の3つの観点から評価をしてもらいます。
@@ -41,11 +45,19 @@
       </li>
     </ol>
 
+    <h2>評価例</h2>
+    以下に各スタイルのテキストの例とその評価例を示します。
+
+
     <h2>注意</h2>
     <ul>
       <li>この実験は15～20分ほど要します。</li>
+      <li>スタイルの変換方向は2種類（関西弁→標準語と、標準語→関西弁）で、順番はランダムです。</li>
       <li>実験中はページの再読み込みは行わないで下さい（始めからになってしまいます）。</li>
       <li>スマートフォンでは結果をダウンロードできない場合があるのでPCを使用して下さい。</li>
+      <li>お時間のある方は複数セットで実験して頂けると大変助かります。</li>
+      <li>別のセットで評価を始める場合は、お手数ですがページの更新を行うかURLを開きなおしてください。</li>
+      <li>評価ページの不備や質問等ありましたら、<br>吉岡のSlackかメールアドレス[yoshioka.daiki@g.sp.m.is.nagoya-u.ac.jp]にご連絡ください。</li>
     </ul>
     </p>
   </div>
@@ -56,11 +68,15 @@
     <p> Your name: <br>
       <input type="text" id="name" value="">
     </p>
+    <p> Your birthplace: <br>
+      <input type="text" id="birthplace" value="">
+    </p>
     <p> Setlist number: <br>
       <label><input type="radio" name="set" id="number" value="1">1</label><br>
       <label><input type="radio" name="set" id="number" value="2">2</label><br>
       <label><input type="radio" name="set" id="number" value="3">3</label><br>
       <label><input type="radio" name="set" id="number" value="4">4</label><br>
+      <label><input type="radio" name="set" id="number" value="5">5</label><br>
     <p>
       <button id="next1" onclick="start_experiment()">next</button>
     </p>
@@ -90,8 +106,8 @@
       <tr>
         <th rowspan="2">↓</th>
         <th>完全に×</th>
-        <th>どちらかと言えば×</th>
-        <th>どちらかと言えば〇</th>
+        <th>どちらかと<br>言えば×</th>
+        <th>どちらかと<br>言えば〇</th>
         <th>完全に〇</th>
         <th rowspan="2">↑</th>
       </tr>
@@ -121,7 +137,7 @@
         <th rowspan="2">↓</th>
         <th>完全に×</th>
         <th>どちらかと言えば×</th>
-        <th>妥協できる</th>
+        <th>許容できる</th>
         <th>どちらかと言えば〇</th>
         <th>完全に〇</th>
         <th rowspan="2">↑</th>

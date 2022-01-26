@@ -24,6 +24,11 @@ function start_experiment() {
     alert("Please enter your name.");
     return false;
   }
+  var birthplace = document.getElementById("birthplace").value.replace(" ", "_");
+  if (name == "") {
+    alert("Please enter your birthplace.");
+    return false;
+  }
 
   // get setlist number
   var set_num = "0"
@@ -86,20 +91,24 @@ function loadText(filename) {
 function makeTextList() {
   var m1_texts = [];
   var m2_texts = [];
+  var m3_texts = [];
   for (i = 0; i < origin.length; i++) {
-    if (i < 25) {
+    if (i < 10) {
       m1_texts.push({ "id": i, "direction": 0, "method": "cvae+attn", "ori_text": origin[i], "tra_text": method1[i] });
       m2_texts.push({ "id": i, "direction": 0, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method2[i] });
+      m3_texts.push({ "id": i, "direction": 0, "method": "cvae", "ori_text": origin[i], "tra_text": method3[i] });
     } else {
       m1_texts.push({ "id": i, "direction": 1, "method": "cvae+attn", "ori_text": origin[i], "tra_text": method1[i] });
       m2_texts.push({ "id": i, "direction": 1, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method2[i] });
+      m3_texts.push({ "id": i, "direction": 1, "method": "cvae", "ori_text": origin[i], "tra_text": method3[i] });
     }
   }
 
 
 
   var texts = [];
-  texts = m1_texts.concat(m2_texts);//, method3, method4
+  t = m1_texts.concat(m2_texts);
+  texts = t.concat(m3_texts);//, method4
   texts.shuffle();
   return texts;
 }
@@ -300,7 +309,7 @@ document.onkeypress = invalid_enter();
 var origin;
 var method1;
 var method2;
-//var method3;
+var method3;
 //var method4;
 var outfile;
 var text_list;
