@@ -178,7 +178,8 @@ function evalCheck3() {
   }
 }
 function ref_check() {
-  document.getElementsByName("reference").value = reference[n];
+  document..getElementById("reference").value = reference[n];
+  console.log(document..getElementById("reference").value);
 }
 
 
@@ -274,12 +275,13 @@ function evaluation(k) {
 }
 
 function save() {
-  var ref = document.getElementsByName("reference").value;
-  console.log("ref:")
-  console.log(ref)
+  console.log(document..getElementById("reference").value);
+  var ref = document..getElementById("reference").value;
+  console.log("ref:");
+  console.log(ref);
   reference[n] = ref;
-  console.log("reference[n]:")
-  console.log(reference[n])
+  console.log("reference[n]:");
+  console.log(reference[n]);
   setButton();
 }
 
