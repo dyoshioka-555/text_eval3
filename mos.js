@@ -71,7 +71,7 @@ function start_experiment() {
   scores1 = (new Array(text_list.length)).fill(0);
   scores2 = (new Array(text_list.length)).fill(0);
   scores3 = (new Array(text_list.length)).fill(0);
-  reference = (new Array < string > (text_list.length)).fill("");
+  reference = (new Array(text_list.length)).fill("");
   eval1 = document.getElementsByName("eval1");
   eval2 = document.getElementsByName("eval2");
   eval3 = document.getElementsByName("eval3");
