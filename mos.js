@@ -71,6 +71,7 @@ function start_experiment() {
   scores1 = (new Array(text_list.length)).fill(0);
   scores2 = (new Array(text_list.length)).fill(0);
   scores3 = (new Array(text_list.length)).fill(0);
+  reference = (new Array < string > (text_list.length)).fill("");
   eval1 = document.getElementsByName("eval1");
   eval2 = document.getElementsByName("eval2");
   eval3 = document.getElementsByName("eval3");
@@ -139,6 +140,7 @@ function init() {
   evalCheck1();
   evalCheck2();
   evalCheck3();
+  ref_check();
   setButton();
 }
 
@@ -175,6 +177,10 @@ function evalCheck3() {
     eval3[c - 1].checked = true;
   }
 }
+function ref_check() {
+  document.getElementsByName("reference").value = reference[n];
+}
+
 
 function setButton() {
   var finish_flag = 0;
@@ -183,21 +189,23 @@ function setButton() {
     document.getElementById("prev").disabled = false;
     document.getElementById("next2").disabled = true;
     document.getElementById("finish").disabled = true;
-    for (var i = 0; i < eval1.length; i++) {
-      if (eval1[i].checked) {
-        finish_flag += 1;
+    if (reference[n] != "") {
+      for (var i = 0; i < eval1.length; i++) {
+        if (eval1[i].checked) {
+          finish_flag += 1;
+        }
       }
-    }
-    for (var i = 0; i < eval2.length; i++) {
-      if (eval2[i].checked) {
-        finish_flag += 1;
-      }
-      if (eval3[i].checked) {
-        finish_flag += 1;
-      }
-      if (finish_flag >= 3) {
-        document.getElementById("finish").disabled = false;
-        break;
+      for (var i = 0; i < eval2.length; i++) {
+        if (eval2[i].checked) {
+          finish_flag += 1;
+        }
+        if (eval3[i].checked) {
+          finish_flag += 1;
+        }
+        if (finish_flag >= 3) {
+          document.getElementById("finish").disabled = false;
+          break;
+        }
       }
     }
   }
@@ -210,25 +218,27 @@ function setButton() {
     }
     document.getElementById("next2").disabled = true;
     document.getElementById("finish").disabled = true;
-    for (var i = 0; i < eval1.length; i++) {
-      console.log(next_flag);
-      if (eval1[i].checked) {
-        next_flag += 1;
+    if (reference[n] != "") {
+      for (var i = 0; i < eval1.length; i++) {
+        console.log(next_flag);
+        if (eval1[i].checked) {
+          next_flag += 1;
+        }
       }
-    }
-    for (var i = 0; i < eval2.length; i++) {
-      if (eval2[i].checked) {
-        next_flag += 1;
-      }
-      if (eval3[i].checked) {
-        next_flag += 1;
-      }
-      if (next_flag >= 3) {
-        document.getElementById("next2").disabled = false;
-        break;
+      for (var i = 0; i < eval2.length; i++) {
+        if (eval2[i].checked) {
+          next_flag += 1;
+        }
+        if (eval3[i].checked) {
+          next_flag += 1;
+        }
+        if (next_flag >= 3) {
+          document.getElementById("next2").disabled = false;
+          break;
 
+        }
+        console.log(next_flag);
       }
-      console.log(next_flag);
     }
   }
 }
@@ -260,6 +270,11 @@ function evaluation(k) {
   setButton();
 }
 
+function save() {
+  reference[n] = document.getElementsByName("reference").value;
+  setButton();
+}
+
 function exportCSV() {
   var csvData = "";
   for (var i = 0; i < text_list.length; i++) {
@@ -288,6 +303,7 @@ function next() {
   evalCheck1();
   evalCheck2();
   evalCheck3();
+  ref_check();
   setButton();
 }
 
@@ -297,6 +313,7 @@ function prev() {
   evalCheck1();
   evalCheck2();
   evalCheck3();
+  ref_check();
   setButton();
 }
 
