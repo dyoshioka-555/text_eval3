@@ -178,8 +178,8 @@ function evalCheck3() {
   }
 }
 function ref_check() {
-  document..getElementById("reference").value = reference[n];
-  console.log(document..getElementById("reference").value);
+  document.getElementById("reference").value = reference[n];
+  console.log(document.getElementById("reference").value);
 }
 
 
@@ -275,8 +275,8 @@ function evaluation(k) {
 }
 
 function save() {
-  console.log(document..getElementById("reference").value);
-  var ref = document..getElementById("reference").value;
+  console.log(document.getElementById("reference").value);
+  var ref = document.getElementById("reference").value;
   console.log("ref:");
   console.log(ref);
   reference[n] = ref;
