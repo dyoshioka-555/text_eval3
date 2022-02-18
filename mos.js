@@ -104,12 +104,12 @@ function makeTextList() {
   for (i = 0; i < origin.length; i++) {
     if (i < 10) {
       m1_texts.push({ "id": i, "direction": 0, "method": "cvae+attn", "ori_text": origin[i], "tra_text": method1[i] });
-      m2_texts.push({ "id": i, "direction": 0, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method2[i] });
-      //m3_texts.push({ "id": i, "direction": 0, "method": "cvae", "ori_text": origin[i], "tra_text": method3[i] });
+      m2_texts.push({ "id": i, "direction": 0, "method": "cvae", "ori_text": origin[i], "tra_text": method2[i] });
+      //m3_texts.push({ "id": i, "direction": 0, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method3[i] });
     } else {
       m1_texts.push({ "id": i, "direction": 1, "method": "cvae+attn", "ori_text": origin[i], "tra_text": method1[i] });
-      m2_texts.push({ "id": i, "direction": 1, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method2[i] });
-      //m3_texts.push({ "id": i, "direction": 1, "method": "cvae", "ori_text": origin[i], "tra_text": method3[i] });
+      m2_texts.push({ "id": i, "direction": 1, "method": "cvae", "ori_text": origin[i], "tra_text": method2[i] });
+      //m3_texts.push({ "id": i, "direction": 1, "method": "cvae+bow", "ori_text": origin[i], "tra_text": method3[i] });
     }
   }
 
@@ -186,7 +186,7 @@ function ref_check() {
 function setButton() {
   var finish_flag = 0;
   var next_flag = 0;
-  if (n == (scores1.length - 1)) {
+  if (n == (scores1.length / 4 - 1)) {
     document.getElementById("prev").disabled = false;
     document.getElementById("next2").disabled = true;
     document.getElementById("finish").disabled = true;
@@ -292,10 +292,11 @@ function exportCSV() {
       + ('00' + text_list[i]["id"]).slice(-2) + ","
       + scores1[i] + ","
       + scores2[i] + ","
-      + scores3[i] + "\r\n";
+      + scores3[i] + ","
+      + reference[i] + "\r\n";
   }
 
-  const link = document.createElement("a");
+  const link = document.crea1teElement("a");
   document.body.appendChild(link);
   link.style = "display:none";
   const blob = new Blob([csvData], { type: "octet/stream" });
@@ -350,10 +351,10 @@ var outfile;
 var text_list;
 var scores1;
 var scores2;
-var scores3;
+//var scores3;
 
 // ローカルで行う場合はloadText()は動作しないため
 var n = 0;
 var eval1 = document.getElementsByName("eval1");
 var eval2 = document.getElementsByName("eval2");
-var eval3 = document.getElementsByName("eval3");
+//var eval3 = document.getElementsByName("eval3");
