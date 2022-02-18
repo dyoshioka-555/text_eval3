@@ -274,7 +274,8 @@ function evaluation(k) {
 }
 
 function save() {
-  reference[n] = document.getElementsByName("reference").value;
+  var ref = document.getElementsByName("reference").value;
+  reference[n] = ref;
   console.log(reference[n])
   setButton();
 }
