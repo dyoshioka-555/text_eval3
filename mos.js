@@ -186,7 +186,7 @@ function ref_check() {
 function setButton() {
   var finish_flag = 0;
   var next_flag = 0;
-  if (n == (scores1.length / 4 - 1)) {
+  if (n == (scores1.length - 1)) {
     document.getElementById("prev").disabled = false;
     document.getElementById("next2").disabled = true;
     document.getElementById("finish").disabled = true;
