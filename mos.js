@@ -240,6 +240,9 @@ function setButton() {
         console.log(next_flag);
       }
     }
+    else {
+      console.log("reference[n] is not saved");
+    }
   }
 }
 
@@ -272,6 +275,7 @@ function evaluation(k) {
 
 function save() {
   reference[n] = document.getElementsByName("reference").value;
+  console.log(reference[n])
   setButton();
 }
 
