@@ -296,7 +296,7 @@ function exportCSV() {
       + reference[i] + "\r\n";
   }
 
-  const link = document.crea1teElement("a");
+  const link = document.createElement("a");
   document.body.appendChild(link);
   link.style = "display:none";
   const blob = new Blob([csvData], { type: "octet/stream" });
