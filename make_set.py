@@ -2,9 +2,9 @@ import os
 import random
 
 root = "texts/"
-METHOD = ["origin", "cvae", "cvae_bow", "cvae_attn"]
+METHOD = ["origin", "CWS-Attn", "CWS-Attn+PE", "Cycle"]
 N_SET = 5
-random.seed(0)
+random.seed(3)
 
 text_lists = {}
 for method in METHOD:
@@ -29,8 +29,9 @@ for method in METHOD:
 rand_num0 = random.sample(range(len(text_lists["origin"][0])), 50)
 rand_num0.sort()
 # print(rand_num0)
-#rand_num1 = random.sample(range(len(text_lists["origin"][1])), 50)
-#rand_num1.sort()
+rand_num1 = random.sample(range(len(text_lists["origin"][1])), 50)
+rand_num1.sort()
+"""
 rand_num1 = sorted(
         [
             34,
@@ -85,6 +86,7 @@ rand_num1 = sorted(
             894,
         ]
     )
+    """
 
 
 for method in METHOD:
